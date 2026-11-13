@@ -6,6 +6,7 @@ public record Reservation(String id, Evenement evenement, Participant participan
                           StatutReservation statut) {
 
     public Reservation avecStatut(StatutReservation nouveauStatut) {
-        throw new UnsupportedOperationException();
+        // Record immuable : on renvoie une copie, l'objet d'origine n'est pas modifie
+        return new Reservation(id, evenement, participant, tarif, montant, nouveauStatut);
     }
 }
